@@ -19,6 +19,16 @@
         {
             ChangingCarImg.Source = images[++ind % 4];
         }
+
+        private void OnUpBtn2Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OnDownBtn2Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

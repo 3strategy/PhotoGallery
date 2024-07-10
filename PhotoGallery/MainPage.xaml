@@ -6,11 +6,22 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="30,0" Spacing="25">
-            <Button
+            <HorizontalStackLayout>
+
+                <Button
                 x:Name="UpBtn"
                 Clicked="OnUpBtnClicked"
                 Style="{StaticResource IconButton}"
                 Text="&#xe5d8;" />
+
+                <Button
+                x:Name="UpBtn2"
+                                    BackgroundColor="CadetBlue"
+                Clicked="OnUpBtn2Clicked"
+                Style="{StaticResource IconButton}"
+                Text="&#xe5d8;" />
+
+            </HorizontalStackLayout>
 
             <Image
                 x:Name="ChangingCarImg"
@@ -19,13 +30,23 @@
                 SemanticProperties.Description="dot net bot in a race car number eight"
                 Source="dotnet_bot.png" />
 
+            <HorizontalStackLayout>
 
-
-            <Button
+                <Button
                 x:Name="DownBtn"
                 Clicked="OnDownBtnClicked"
                 Style="{StaticResource IconButton}"
                 Text="&#xe5db;" />
+
+                <Button
+                x:Name="DownBtn2"
+                                    BackgroundColor="CadetBlue"
+                Clicked="OnDownBtn2Clicked"
+                Style="{StaticResource IconButton}"
+                Text="&#xe5db;" />
+
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
     </ScrollView>
 
