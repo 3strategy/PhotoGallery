@@ -8,10 +8,8 @@
         <VerticalStackLayout Padding="30,0" Spacing="25">
             <Button
                 x:Name="UpBtn"
-                FontFamily="MaterialSymbols"
-                HorizontalOptions="Fill"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnUpBtnClicked"
+                Style="{StaticResource IconButton}"
                 Text="&#xe5d8;" />
 
             <Image
@@ -25,8 +23,8 @@
 
             <Button
                 x:Name="DownBtn"
-                
                 Clicked="OnDownBtnClicked"
+                Style="{StaticResource IconButton}"
                 Text="&#xe5db;" />
         </VerticalStackLayout>
     </ScrollView>
