@@ -1,34 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PhotoGallery.MainPage">
+<ContentPage
+    x:Class="PhotoGallery.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+        <VerticalStackLayout Padding="30,0" Spacing="25">
             <Button
                 x:Name="UpBtn"
                 FontFamily="MaterialSymbols"
-                Text="&#xe5d8;" 
+                HorizontalOptions="Fill"
                 SemanticProperties.Hint="Counts the number of times you click"
-            
-                HorizontalOptions="Fill" />
-            
+                Clicked="OnUpBtnClicked"
+                Text="&#xe5d8;" />
+
             <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
+                x:Name="ChangingCarImg"
                 Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+                HeightRequest="185"
+                SemanticProperties.Description="dot net bot in a race car number eight"
+                Source="dotnet_bot.png" />
 
 
-            <!--Clicked="OnCounterClicked"-->
+
             <Button
                 x:Name="DownBtn"
-                Text="Click me" 
-                SemanticProperties.Hint="Counts the number of times you click"
-    
-                HorizontalOptions="Fill" />
+                
+                Clicked="OnDownBtnClicked"
+                Text="&#xe5db;" />
         </VerticalStackLayout>
     </ScrollView>
 
