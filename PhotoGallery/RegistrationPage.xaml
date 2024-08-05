@@ -4,37 +4,38 @@
              xmlns:models="clr-namespace:PhotoGallery.Models"
              x:Class="PhotoGallery.RegistrationPage"
              x:DataType="models:User"
-             Title="RegistrationPage">
+             FlowDirection="RightToLeft"
+             Title="הרשמה">
     <ContentPage.BindingContext>
         <models:User />
     </ContentPage.BindingContext>
 
     <StackLayout Padding="10">
 
-        <Label Text="Name" />
+        <Label Text="שם מלא" />
         <Entry Text="{Binding Name}" />
 
-        <Label Text="Username" />
+        <Label Text="שם משתמש" />
         <Entry Text="{Binding UserName}" />
 
-        <Label Text="Email" />
+        <Label Text="מייל" />
         <Entry Text="{Binding Email}" />
 
-        <Label Text="Phone" />
+        <Label Text="טלפון" />
         <Entry Text="{Binding Phone}" />
 
-        <Label Text="Password" />
+        <Label Text="סיסמה" />
         <Entry Text="{Binding Password}" IsPassword="True" />
 
-        <Label Text="Birth Date" />
+        <Label Text="תאריך לידה" />
         <DatePicker Date="{Binding BirthDate}" />
 
-        <Label Text="Age" />
+        <Label Text="גיל" />
         <Label Text="{Binding Age}" />
 
         <Label Text="{Binding ErrorMessage}" TextColor="Orange" />
 
         <!-- Register Button -->
-        <Button Text="Register" Command="{Binding RegisterCommand}" />
+        <Button Text="הרשמה" Command="{Binding RegisterCommand}" />
     </StackLayout>
 </ContentPage>
