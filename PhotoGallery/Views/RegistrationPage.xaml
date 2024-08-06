@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:PhotoGallery.Models"
-             x:Class="PhotoGallery.RegistrationPage"
-             x:DataType="models:User"
+             xmlns:models="clr-namespace:PhotoGallery.Models"          
+             
+            xmlns:local="clr-namespace:PhotoGallery.Views"
+            xmlns:viewModels="clr-namespace:PhotoGallery.ViewModels"
+            x:DataType="viewModels:RegistrationPageViewModel"
+            x:Class="PhotoGallery.Views.RegistrationPage"
+             
              FlowDirection="RightToLeft"
              Title="הרשמה">
-    <ContentPage.BindingContext>
-        <models:User />
-    </ContentPage.BindingContext>
+
 
     <StackLayout Padding="10">
 

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
-namespace PhotoGallery.Models
+namespace PhotoGallery.ViewModels
 {
-    internal class User:ObservableObject
+    internal class RegistrationPageViewModel:ViewModelBase
     {
         private string name;
         private string userName;
