@@ -32,7 +32,7 @@
         <Label Text="גיל" />
         <Label Text="{Binding Age}" />
 
-        <Label Text="{Binding ErrorMessage}" TextColor="Orange" />
+        <Label Text="{Binding ErrorMessage}" TextColor="{Binding ErrorMsgColor}" />
 
         <Grid Margin="15,0"
         ColumnDefinitions="*,*"
