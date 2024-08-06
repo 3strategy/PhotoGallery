@@ -22,48 +22,121 @@ namespace PhotoGallery.ViewModels
         public string Name
         {
             get => name;
-            set { name = value; OnPropertyChanged(); }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(RegisterEnabled));
+                }
+            }
         }
 
         public string UserName
         {
             get => userName;
-            set { userName = value; OnPropertyChanged(); }
+            set
+            {
+                if (userName != value)
+                {
+                    userName = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(RegisterEnabled));
+                    OnPropertyChanged(nameof(CancelEnabled));
+
+                }
+            }
         }
 
         public string Email
         {
             get => email;
-            set { email = value; OnPropertyChanged(); }
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public string Phone
         {
             get => phone;
-            set { phone = value; OnPropertyChanged(); }
+            set
+            {
+                if (phone != value)
+                {
+                    phone = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
         public DateTime BirthDate
         {
             get => birthDate;
-            set { birthDate = value; OnPropertyChanged(); OnPropertyChanged(nameof(Age)); }
+
+            set
+            {
+                if (birthDate != value)
+                {
+                    birthDate = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(Age));
+                }
+            }
+
         }
 
         public string Password
         {
             get => password;
-            set { password = value; OnPropertyChanged(); }
+            set
+            {
+                if (password != value)
+                {
+                    password = value;
+                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(RegisterEnabled));
+                    OnPropertyChanged(nameof(CancelEnabled));
+                }
+            }
         }
 
         public string ErrorMessage
         {
             get => errorMessage;
-            set { errorMessage = value; OnPropertyChanged(); }
+            set
+            {
+                if (errorMessage != value)
+                {
+                    errorMessage = value;
+                    OnPropertyChanged();
+                }
+            }
         }
 
-        public int Age => (DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0));
+        public bool RegisterEnabled
+        {
+            get => Name is not null &&
+                Password is not null &&
+                UserName is not null &&
+                Name != "" && Password != "" && UserName != "";
+        }
+
+        public bool CancelEnabled
+        {
+            get => UserName is not null && UserName != "" ||
+                Password is not null && Password != "";
+        }
+
+        public int Age => DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0);
 
         public ICommand RegisterCommand => new Command(OnRegister);
+        public ICommand CancelCommand => new Command(OnCancel);
 
         private void OnRegister()
         {
@@ -73,7 +146,7 @@ namespace PhotoGallery.ViewModels
             else if (Regex.IsMatch(UserName, @"^\d") || UserName.Contains(" "))
                 ErrorMessage += "שם המשתמש לא יכול להתחיל בספרה ואסור שיכיל רווחים\n";
 
-            if(Password is null)
+            if (Password is null)
                 ErrorMessage += "חייבים סיסמא\n";
             else if (!Regex.IsMatch(Password, @"^(?=.*[A-Z])(?=.*\d).+$"))
                 ErrorMessage += "סיסמה חייבת להכיל לפחות אות גדולה אחת ומספר\n";
@@ -86,10 +159,19 @@ namespace PhotoGallery.ViewModels
             else if (!IsValidEmail(email))
                 ErrorMessage += "מייל לא תקין\n";
 
-            if(ErrorMessage =="")
+            if (UserName != Password)
+                ErrorMessage += "UserName Must match Password שם משתמש/סיסמה לא תקינים";
+            if (ErrorMessage == "")
                 ErrorMessage = "Registration successful!";
         }
+        private void OnCancel()
+        {
+            Name = "";
+            UserName = "";
+            Password = "";
+            Phone = "";
 
+        }
         private bool IsValidEmail(string email)
         {
             try
