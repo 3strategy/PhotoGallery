@@ -135,6 +135,8 @@ namespace PhotoGallery.ViewModels
 
         public int Age => DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0);
 
+        
+
         public ICommand RegisterCommand => new Command(OnRegister);
         public ICommand CancelCommand => new Command(OnCancel);
 
@@ -162,7 +164,7 @@ namespace PhotoGallery.ViewModels
             if (UserName != Password)
                 ErrorMessage += "UserName Must match Password שם משתמש/סיסמה לא תקינים";
             if (ErrorMessage == "")
-                ErrorMessage = "Registration successful!";
+                ErrorMessage = "הכניסה אומתה";
         }
         private void OnCancel()
         {

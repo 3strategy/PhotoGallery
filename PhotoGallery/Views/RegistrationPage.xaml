@@ -34,7 +34,12 @@
 
         <Label Text="{Binding ErrorMessage}" TextColor="Orange" />
 
-        <!-- Register Button -->
-        <Button Text="הרשמה" Command="{Binding RegisterCommand}" />
+        <Grid Margin="15,0"
+        ColumnDefinitions="*,*"
+        ColumnSpacing="2">
+            <!-- Register Button -->
+            <Button Text="הרשמה" Command="{Binding RegisterCommand}" IsEnabled="{Binding RegisterEnabled}" />
+            <Button Grid.Column="1" Text="ביטול" Command="{Binding CancelCommand}" IsEnabled="{Binding CancelEnabled}" />
+        </Grid>
     </StackLayout>
 </ContentPage>
