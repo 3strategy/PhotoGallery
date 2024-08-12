@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
+using PhotoGallery.Models;
+using Windows.Networking.Sockets;
 
 namespace PhotoGallery.ViewModels
 {
@@ -167,6 +169,8 @@ namespace PhotoGallery.ViewModels
             if (ErrorMessage == "")
             {
                 ErrorMessage = "הכניסה אומתה";
+                User uuu = new User{ Email = Email, Name = Name };
+                // insert into DB...
             }
         }
         private void OnCancel()
